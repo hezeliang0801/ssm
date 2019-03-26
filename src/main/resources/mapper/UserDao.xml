@@ -5,7 +5,7 @@
 <mapper namespace="com.chatRobot.dao.IUserDao">
 
     <select id="selectUser" resultType="User" parameterType="long">
-        SELECT * FROM user WHERE id = #{id}
+        SELECT * FROM user WHERE id = #{id} and 1 = 1;
     </select>
 
 </mapper>

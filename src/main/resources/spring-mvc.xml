@@ -15,10 +15,12 @@
 
     <!-- 开启SpringMVC注解模式 -->
     <mvc:annotation-driven/>
-
+    <mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/" />
+    <mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/" />
     <!-- 静态资源默认servlet配置 -->
     <mvc:default-servlet-handler/>
-
+    <bean class="com.chatRobot.config.MySwaggerConfig"/>
+    <bean class="springfox.documentation.swagger2.configuration.Swagger2DocumentationConfiguration" id="swagger2Config"/>
     <!-- 配置jsp 显示ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

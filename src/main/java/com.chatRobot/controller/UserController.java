@@ -1,14 +1,15 @@
 package com.chatRobot.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.chatRobot.model.User;
 import com.chatRobot.service.IUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -28,6 +29,22 @@ public class UserController {
         ObjectMapper mapper = new ObjectMapper();
         response.getWriter().write(mapper.writeValueAsString(user));
         response.getWriter().close();
+    }
+
+
+    @ApiOperation(value = "测试专用")
+    @RequestMapping(value="/test",method=RequestMethod.GET)
+    @ResponseBody
+    public User test(@RequestParam("id")Integer id){
+        User user = this.userService.selectUser(id);
+        return user;
+    }
+
+    @RequestMapping(value="/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public User updateById(@PathVariable("id")Integer id){
+        User user = this.userService.selectUser(id);
+        return user;
     }
 
 }
