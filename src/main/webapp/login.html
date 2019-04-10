@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+<script>
+function login()
+{
+var username=document.getElementById("username");
+var pass=document.getElementById("password");
+if(username.value=="")
+{
+alert("请输入用户名");
+username.focus();
+return;
+}
+if(pass.value=="")
+{
+alert("请输入密码");
+return;
+}
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function () {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			document.getElementById("test").innerHTML = xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("POST", "user/login", true);
+	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xmlhttp.send("username="+username.value+"&password="+pass.value);
+}
+</script>
+</head>
+<body>
+<form>
+<table width="350" bgcolor="#ccffcc" style="border-color: aliceblue" border="1">
+<tr align=center>
+<td>用户名</td><td><input type="text" name="username" id="username"></td>
+</tr>
+<tr align=center><td>密 码</td><td><input type="password" name="password" id="password"></td></tr>
+
+<tr align=center><td colspan="2"><input type="button" value="登 录" onclick="login();"/>     <input type="reset" value="重 置"/></td></tr>
+</table>
+</form>
+</body>
+</html>

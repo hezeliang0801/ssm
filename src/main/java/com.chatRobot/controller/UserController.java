@@ -42,9 +42,33 @@ public class UserController {
 
     @RequestMapping(value="/{id}", method = RequestMethod.PUT)
     @ResponseBody
-    public User updateById(@PathVariable("id")Integer id){
+    public User updateById(@RequestParam("id")Integer id){
         User user = this.userService.selectUser(id);
         return user;
     }
+
+    @RequestMapping(value="/addAccount", method = RequestMethod.POST)
+    @ResponseBody
+    public User addAccountById(@RequestParam("id")Integer id,@RequestParam("count") Integer count){
+         return this.userService.addAccount(id,count);
+    }
+
+    /*@RequestMapping(value="/login", method = RequestMethod.POST)
+    @ResponseBody
+    public User login(@RequestParam("username")String username, @RequestParam("password")String password,HttpServletRequest request){
+        return this.userService.login(username,password,request);
+    }*/
+    @RequestMapping(value="/login")
+    @ResponseBody
+    public void login(HttpServletRequest request, HttpServletResponse response){
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        this.userService.login(username,password,request);
+    }
+
+
+
+
+
 
 }

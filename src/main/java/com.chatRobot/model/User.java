@@ -12,9 +12,17 @@ public class User {
     private int status;
     private Date regTime;
     private String regIp;
-
+    private Long account;
     public long getId() {
         return id;
+    }
+
+    public Long getAccount() {
+        return account;
+    }
+
+    public void setAccount(Long account) {
+        this.account = account;
     }
 
     public void setId(int id) {

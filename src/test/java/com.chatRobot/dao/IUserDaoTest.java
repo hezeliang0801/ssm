@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.HashMap;
+import java.util.Map;
+
 // 加载spring配置文件
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring-mybatis.xml"})
@@ -22,4 +25,14 @@ public class IUserDaoTest {
         System.out.println(user.getEmail());
     }
 
+    @Test
+    public void checkLogin() throws Exception {
+        Map<String,String> map= new HashMap();
+        map.put("username","miku01");
+        map.put("password", "hzl123miku");
+        User user = dao.checkLogin(map);
+        System.out.println(user.getAccount());
+
+
+    }
 }

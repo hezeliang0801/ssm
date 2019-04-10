@@ -5,7 +5,15 @@
 <mapper namespace="com.chatRobot.dao.IUserDao">
 
     <select id="selectUser" resultType="User" parameterType="long">
-        SELECT * FROM user WHERE id = #{id} and 1 = 1;
+        SELECT * FROM user WHERE id = #{id};
+    </select>
+
+    <update id="addAccount" parameterType="Map">
+        update user set account = account+#{count} where id = #{id};
+    </update>
+    <!--检查登录-->
+    <select id="checkLogin" resultType="User" parameterType="Map">
+        SELECT * FROM user WHERE username =#{username} and password=#{password}
     </select>
 
 </mapper>
