@@ -32,7 +32,7 @@ public class SessionFilter implements Filter {
         }
         if (isExcludedPage) {
             chain.doFilter(request, response);
-        } else {//
+        } else {
             HttpSession session = ((HttpServletRequest) request).getSession();
             if (session == null || session.getAttribute("username") == null) {
                 ((HttpServletResponse) response).sendRedirect("/ChatRobot/login.html");

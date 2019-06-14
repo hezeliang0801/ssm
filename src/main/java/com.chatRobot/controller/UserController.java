@@ -58,7 +58,7 @@ public class UserController {
     public User login(@RequestParam("username")String username, @RequestParam("password")String password,HttpServletRequest request){
         return this.userService.login(username,password,request);
     }*/
-    @RequestMapping(value="/login")
+    @RequestMapping(value="/login", method = RequestMethod.POST)
     @ResponseBody
     public void login(HttpServletRequest request, HttpServletResponse response){
         String username = request.getParameter("username");

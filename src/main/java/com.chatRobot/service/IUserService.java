@@ -1,7 +1,6 @@
 package com.chatRobot.service;
 
 import com.chatRobot.model.User;
-import com.sun.xml.internal.ws.api.model.ExceptionType;
 
 import javax.servlet.http.HttpServletRequest;
 
