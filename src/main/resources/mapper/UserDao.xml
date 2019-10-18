@@ -15,5 +15,7 @@
     <select id="checkLogin" resultType="User" parameterType="Map">
         SELECT * FROM user WHERE username =#{username} and password=#{password}
     </select>
-
+    <update id="save" parameterType="String">
+        update user set email = #{email} and id = 2;
+    </update>
 </mapper>

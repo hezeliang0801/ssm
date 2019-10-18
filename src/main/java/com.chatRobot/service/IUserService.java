@@ -11,4 +11,6 @@ public interface IUserService {
     User addAccount(long id, long count);
 
     void login(String username, String password, HttpServletRequest request);
+
+    void save(String user);
 }

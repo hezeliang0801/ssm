@@ -160,7 +160,7 @@ public class HttpConnectionUtil {
             conn.setRequestProperty("Connection", "Keep-Alive");
             conn.setRequestProperty("Charset", "UTF-8");
             // 设置文件类型:
-            conn.setRequestProperty("Content-Type","application/json; charset=UTF-8");
+//            conn.setRequestProperty("Content-Type","application/json; charset=UTF-8");
             // 设置接收类型否则返回415错误
             //conn.setRequestProperty("accept","*/*")此处为暴力方法设置接受所有类型，以此来防范返回415;
             conn.setRequestProperty("accept","application/json");
@@ -180,8 +180,6 @@ public class HttpConnectionUtil {
                 	}
                 	result.append(line);
                 }
-                
-                //result = reader.readLine();
             }
         } catch (Exception e) {
             e.printStackTrace();

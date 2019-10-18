@@ -29,7 +29,7 @@ public class UserServiceImpl implements IUserService {
         map.put("id",id);
         map.put("count",count);
         Long aLong = this.userDao.addAccount(map);
-//        int i = 5/0;
+        int i = 5/0;
         return this.userDao.selectUser(id);
     }
 
@@ -42,6 +42,11 @@ public class UserServiceImpl implements IUserService {
         HttpSession session = request.getSession(); //获取session对象
         session.setAttribute("username",username);  //向session域中保存信息
         session.setAttribute("password",password);
+    }
+
+    @Override
+    public void save(String email) {
+        this.userDao.save(email);
     }
 
 }

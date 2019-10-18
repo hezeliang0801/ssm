@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/user")
@@ -29,6 +30,7 @@ public class UserController {
         ObjectMapper mapper = new ObjectMapper();
         response.getWriter().write(mapper.writeValueAsString(user));
         response.getWriter().close();
+        
     }
 
 
@@ -47,11 +49,20 @@ public class UserController {
         return user;
     }
 
+    @RequestMapping(value="/ds", method = RequestMethod.GET)
+    @ResponseBody
+    public void updateById(){
+        String email = "sdljf sdj"+"\\n"+ "sjidfj";
+        this.userService.save(email);
+    }
+
     @RequestMapping(value="/addAccount", method = RequestMethod.POST)
     @ResponseBody
     public User addAccountById(@RequestParam("id")Integer id,@RequestParam("count") Integer count){
          return this.userService.addAccount(id,count);
     }
+
+
 
     /*@RequestMapping(value="/login", method = RequestMethod.POST)
     @ResponseBody

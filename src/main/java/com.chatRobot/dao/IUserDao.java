@@ -11,4 +11,6 @@ public interface IUserDao {
     Long addAccount(Map<String,Long> map);
 
     User checkLogin(Map<String, String> map);
+
+    void save(String user);
 }
