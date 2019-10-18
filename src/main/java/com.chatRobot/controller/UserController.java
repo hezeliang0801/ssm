@@ -30,17 +30,9 @@ public class UserController {
         ObjectMapper mapper = new ObjectMapper();
         response.getWriter().write(mapper.writeValueAsString(user));
         response.getWriter().close();
-        
+        System.out.println("试试咯，反正不要钱");
     }
 
-
-    @ApiOperation(value = "测试专用")
-    @RequestMapping(value="/test",method=RequestMethod.GET)
-    @ResponseBody
-    public User test(@RequestParam("id")Integer id){
-        User user = this.userService.selectUser(id);
-        return user;
-    }
 
     @RequestMapping(value="/{id}", method = RequestMethod.PUT)
     @ResponseBody
