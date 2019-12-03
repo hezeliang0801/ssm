@@ -4,6 +4,7 @@ import com.chatRobot.dao.IUserDao;
 import com.chatRobot.model.User;
 import com.chatRobot.service.IUserService;
 import com.sun.xml.internal.ws.api.model.ExceptionType;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

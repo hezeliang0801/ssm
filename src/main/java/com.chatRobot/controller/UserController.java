@@ -3,16 +3,20 @@ package com.chatRobot.controller;
 import com.chatRobot.model.User;
 import com.chatRobot.service.IUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
+import org.apache.commons.lang.ObjectUtils;
+import org.springframework.security.oauth2.common.util.RandomValueStringGenerator;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.TreeSet;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
 @RequestMapping("/user")
@@ -64,10 +68,18 @@ public class UserController {
     @RequestMapping(value="/login", method = RequestMethod.POST)
     @ResponseBody
     public void login(HttpServletRequest request, HttpServletResponse response){
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         this.userService.login(username,password,request);
     }
+
+    public static void main(String[] args) throws IOException {
+        Integer i = new Integer(200);
+        boolean equals = ObjectUtils.equals(200,i);
+        System.out.println(equals);
+    }
+
 
 
 
