@@ -4,7 +4,6 @@ import com.chatRobot.model.User;
 import com.chatRobot.service.IUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang.ObjectUtils;
-import org.springframework.security.oauth2.common.util.RandomValueStringGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,8 +14,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.TreeSet;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
 @RequestMapping("/user")
@@ -34,11 +31,10 @@ public class UserController {
         ObjectMapper mapper = new ObjectMapper();
         response.getWriter().write(mapper.writeValueAsString(user));
         response.getWriter().close();
-        System.out.println("试试咯，反正不要钱");
     }
 
 
-    @RequestMapping(value="/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value="/{id}", method = RequestMethod.GET)
     @ResponseBody
     public User updateById(@RequestParam("id")Integer id){
         User user = this.userService.selectUser(id);
@@ -49,7 +45,7 @@ public class UserController {
     @ResponseBody
     public void updateById(){
         String email = "sdljf sdj"+"\\n"+ "sjidfj";
-        this.userService.save(email);
+        this.userService.addAccount(1,5);
     }
 
     @RequestMapping(value="/addAccount", method = RequestMethod.POST)

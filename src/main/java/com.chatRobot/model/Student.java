@@ -1,17 +1,31 @@
 package com.chatRobot.model;
 
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.Accessors;
-
-@Accessors(chain = true)
-@Setter
-@Getter
-@RequiredArgsConstructor(staticName = "of")
 public class Student {
-        @NonNull
         private String name;
         private int age;
+
+        public Student (){
+        }
+
+
+        public static void main(String[] args) {
+                Student student1 = new Student();
+                Student student = new Student();
+                student1.age = 12;
+                try {
+                        student.show(student1.age);
+                } catch (Exception e) {
+                        System.out.println(student1.age);
+                }
+        }
+        public void show(int age) throws Exception{
+                try {
+                        int i = 4/0;
+
+                }catch (Exception e){
+                        age = 13;
+                        throw new Exception();
+                }
+                System.out.println("talk is cheap,show me the code!");
+        }
 }

@@ -1,6 +1,6 @@
 package com.chatRobot.dao;
 
-import com.chatRobot.model.HttpConnectionUtil;
+import com.chatRobot.utils.HttpConnectionUtil;
 import net.sf.json.JSONObject;
 
 import java.util.*;

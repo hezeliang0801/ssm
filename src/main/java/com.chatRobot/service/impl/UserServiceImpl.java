@@ -3,8 +3,6 @@ package com.chatRobot.service.impl;
 import com.chatRobot.dao.IUserDao;
 import com.chatRobot.model.User;
 import com.chatRobot.service.IUserService;
-import com.sun.xml.internal.ws.api.model.ExceptionType;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -30,7 +28,7 @@ public class UserServiceImpl implements IUserService {
         map.put("id",id);
         map.put("count",count);
         Long aLong = this.userDao.addAccount(map);
-        int i = 5/0;
+//        int i = 5/0;
         return this.userDao.selectUser(id);
     }
 

@@ -1,27 +1,34 @@
 package com.chatRobot.model;
 
-public class User {
-    private String username;
-    private int age;
+import java.io.Serializable;
 
-    public User(String username, int age) {
-        this.username = username;
-        this.age = age;
+public class User implements Serializable {
+
+    private int id ;
+    private String email;
+    private String password;
+
+    public int getId() {
+        return id;
     }
 
-    public String getUsername() {
-        return username;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getEmail() {
+        return email;
     }
 
-    public int getAge() {
-        return age;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

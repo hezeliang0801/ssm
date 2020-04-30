@@ -60,11 +60,11 @@ public class RestTemplateToInterface {
         return user;
     }
 
-    /**
+   /* *//**
      * 以post方式请求第三方http接口 postForEntity
      * @param url
      * @return
-     */
+     *//*
     public String doPostWith1(String url){
         User user = new User("小白", 20);
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, user, String.class);
@@ -72,16 +72,16 @@ public class RestTemplateToInterface {
         return body;
     }
 
-    /**
+    *//**
      * 以post方式请求第三方http接口 postForEntity
      * @param url
      * @return
-     */
+     *//*
     public String doPostWith2(String url){
         User user = new User("小白", 20);
         String body = restTemplate.postForObject(url, user, String.class);
         return body;
-    }
+    }*/
 
     /**
      * exchange

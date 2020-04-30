@@ -75,10 +75,10 @@
     <filter-class>
       com.chatRobot.config.SessionFilter
     </filter-class>
-    <init-param>
+   <!-- <init-param>
       <param-name>excludedPages</param-name>
-      <param-value>/*</param-value><!-- 匹配不做拦截的请求声明-->
-    </init-param>
+      <param-value>/*</param-value>&lt;!&ndash; 匹配不做拦截的请求声明&ndash;&gt;
+    </init-param>-->
   </filter>
   <filter-mapping><!-- 拦截的请求类型-->
     <filter-name>SessionFilter</filter-name>
